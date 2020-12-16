@@ -6,13 +6,11 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/findMax", function (req, res, next) {
-	console.log(req.body);
 	let array = req.body.array.split("/r").join("/");
 	array = array.split(",");
 	array = array.map((item) => {
 		return parseInt(item);
 	});
-	console.log(array);
 	findMax(array).then((result) => {
 		res.send({
 			highest: result,
